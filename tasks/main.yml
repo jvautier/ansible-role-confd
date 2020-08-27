@@ -1,0 +1,16 @@
+---
+- name: Include ansible_distribution and ansible_os_family tasks
+  include: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution | lower }}.yml"
+    - "{{ ansible_os_family | lower }}.yml"
+
+- name: Creates directory /etc/confd/conf.d
+  file:
+    path: /etc/confd/conf.d
+    state: directory
+
+- name: Creates directory /etc/confd/templates
+  file:
+    path: /etc/confd/templates
+    state: directory

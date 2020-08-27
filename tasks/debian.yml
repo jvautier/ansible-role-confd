@@ -1,0 +1,14 @@
+---
+- name: Download confd
+  get_url:
+    url: https://github.com/kelseyhightower/confd/releases/download/v{{ confd_version }}/confd-{{ confd_version }}-{{ ansible_system | lower }}-amd64
+    dest: /usr/bin
+    mode: 0777
+    # remote_src: true
+
+- name: Move confd to /usr/bin
+  file:
+    src: /usr/bin/confd-{{ confd_version }}-{{ ansible_system | lower }}-amd64
+    path: /usr/bin/confd
+    state: hard
+    force: true
