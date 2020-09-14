@@ -1,0 +1,8 @@
+---
+fullname: jvautier/ansible-role-confd
+description: Install confd through ansible
+tags:
+  - ansible
+  - ansible-role
+  - confd
+github: {}
